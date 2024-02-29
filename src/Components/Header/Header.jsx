@@ -1,27 +1,26 @@
-import React, { useContext } from "react";
-import {Link} from "react-router-dom";
+// import React, { useContext } from "react";
+// import {Link} from "react-router-dom";
 import classes from './header.module.css';
+import LowerHeader from './LowerHeader';
 import { SlLocationPin } from "react-icons/sl";
-import LowerHeader from "./LowerHeader";
 import { BsSearch } from "react-icons/bs";
 import { BiCart } from "react-icons/bi";
-import { DataContext } from "../DataProvider/DataProvider";
+// import { DataContext } from "../DataProvider/DataProvider";
 
 const Header = () => {
- const[{basket},dispatch]=useContext(DataContext)
+//  const[{basket},dispatch]=useContext(DataContext)
   return (
     <>
-     <section className={classes.fixed}></section>
-      <section>
+     {/* <section className={classes.fixed}></section> */}
         <header className={classes.header_container}>
           {/* Logo container */}
           <div className={classes.logo_container}>
-            <Link to="/">
+            <a href="/">
               <img
                 src="https://pngimg.com/uploads/amazon/amazon_PNG11.png"
-                alt="Amazon logo"
-              />
-            </Link>
+                alt="Amazon logo" />
+            </a>
+
             <div className={classes.delivery}>
               <span>
                 <SlLocationPin />
@@ -44,35 +43,37 @@ const Header = () => {
 
           {/* Other section */}
           <section className={classes.order_container}>
-            <Link to="/" className={classes.language}>
+            <a href="" className={classes.language}>
               <img
                 src="https://upload.wikimedia.org/wikipedia/en/thumb/a/a4/Flag_of_the_United_States.svg/1024px-Flag_of_the_United_States.svg.png"
                 alt="" />
               <select name="" id="">
                 <option value="">EN</option>
               </select>
-            </Link>
+            </a>
 
-            <Link to="/">
+            <a href="/">
               <p>Sign In</p>
               <span>Account & Lists</span>
-            </Link>
+            </a>
 
-            <Link to="/Orders">
+            <a href="/Orders">
               <p>Returns</p>
               <span>& Orders</span>
-            </Link>
+            </a>
 
-            <Link to="/Cart" className={classes.cart}>
+            <a href="/Cart" className={classes.cart}>
               <BiCart size={55} />
-              <span>{basket.length}</span>
-            </Link>
+              {/* <span>{basket.length}</span> */}
+            </a>
           </section>
-        </header>
-      </section>
-      <LowerHeader/>
+        </header>  
+        <LowerHeader/>
     </>
   );
 };
-
 export default Header;
+
+
+
+
